@@ -575,9 +575,9 @@ LimbPtr Evaluator::pl4(const LimbPtr &operand1, const LimbPtr &operand2,
 
 // Don't optimize this function. There's some weird bug caused by the optimizer
 // that causes
-#ifdef __clang__
+#if defined(__clang__)
 [[clang::optnone]]
-#elif defined __clang__
+#elif defined(__GNUC__) || defined(__GNUG__)
 __attribute__((optimize("O1")))
 #endif
 
